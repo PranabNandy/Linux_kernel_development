@@ -75,6 +75,8 @@ MODULE_DESCRIPTION("my_first_module");
 // uname -r
 //sudo apt-get install linux-kernel-headers
 
+
 // --------- Important for linux
 // https://elixir.bootlin.com/linux/latest/source
 
+// git commit -s -v
