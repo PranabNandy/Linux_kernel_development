@@ -39,23 +39,23 @@ static int  __init entry_function(void){
 
 
 
-ssize_t simple_write (struct file *file, const char __user *buf, size_t len, loff_t *off){
+ssize_t simple_write (struct file *file, const char __user *user_space_buf, size_t len, loff_t *off){
 	printk("write Driver 3 \n");
 	if(len>sizeof(kern_buf))
 		return EIO;
 	memset(kern_buf,0,sizeof(kern_buf));
-	copy_from_user(kern_buf,buf,len);
+	copy_from_user(kern_buf,user_space_buf,len);
 	kern_buf[len]=0;
 	return (ssize_t)len;
 }
 
-ssize_t simple_read (struct file *file, char __user *buf, size_t len, loff_t *off){
+ssize_t simple_read (struct file *file, char __user *user_space_buf, size_t len, loff_t *off){
 	printk("Read Driver 3 \n");
 	if(*off>sizeof(kern_buf))
 		return 0;
 	if(len>sizeof(kern_buf))
 		len=sizeof(kern_buf);
-	copy_to_user(buf,kern_buf,len);
+	copy_to_user(user_space_buf,kern_buf,len);
 	return (ssize_t)len;
 
 }
@@ -112,3 +112,4 @@ module_exit(exit_function);
 // https://elixir.bootlin.com/linux/latest/source
 
 // git commit -s -v
+
