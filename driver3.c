@@ -113,3 +113,6 @@ module_exit(exit_function);
 
 // git commit -s -v
 
+
+// ---- To fix linux driver compilation issue
+// sudo apt install --reinstall linux-headers-$(uname -r)
