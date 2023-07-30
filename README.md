@@ -1,7 +1,7 @@
 # Linux_kernel_development
 Linux_kernel_development
 
-*************************cross tool-chain installation and settings for linux host******************
+# ************** cross tool-chain installation and settings for linux host ******************
 
 STEP 1 : Download arm cross toolchain for your Host machine
 
@@ -10,7 +10,7 @@ STEP 2 :  export  path of the cross compilation toolchain.
 export PATH=$PATH:/home/kiran/BBB_Workspace/Downloads/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin
 
 
-*************************U-boot Compilation ***************************************************
+# ************************* U-boot Compilation *************************
 
 
 STEP 1: distclean : deletes all the previously compiled/generated object files. 
@@ -33,7 +33,7 @@ make CROSS_COMPILE=arm-linux-gnueabihf- -j4  // -j4(4 core machine) will instruc
 make CROSS_COMPILE=arm-linux-gnueabihf- -j8  // -j8(8 core machine) will instructs the make tool to spawn 8 threads
 
 
-************************* linux compilation ***************************************************
+# ************************* linux compilation *************************
 STEP 1:
  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 
@@ -54,7 +54,7 @@ STEP 6:
  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=<path of the RFS> modules_install
 
 
-************************* Busy box compilation ***************************************************
+# ************************* Busy box compilation *************************
 
 STEP 1: download busybox 
 
@@ -69,7 +69,7 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CONFIG_PREFIX=<install_path> in
 
 
 
-*********************************build-root compilation ***********************************
+# ************************* build-root compilation *************************
 1) download the build root package from 
 
 https://buildroot.org/
